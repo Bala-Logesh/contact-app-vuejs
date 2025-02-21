@@ -10,7 +10,9 @@
 </template>
 
 <script setup>
+import axios from 'axios';
 import Contact from './Contact.vue';
+import { ref } from 'vue';
 
 const heading = {
     name: 'Name',
@@ -19,30 +21,19 @@ const heading = {
     designation: 'Designation'
 }
 
-const contacts = [
-    {
-        name: 'John',
-        email: 'john@gmail.com',
-        phone: '555-555-5555',
-        designation: 'Software Developer'
-    },
-    {
-        name: 'Sara',
-        email: 'sara@gmail.com',
-        phone: '999-999-9999',
-        designation: 'Software Architect'
-    },
-    {
-        name: 'brad',
-        email: 'brad@gmail.com',
-        phone: '777-777-7777',
-        designation: 'Web Developer'
-    },
-    {
-        name: 'abnation',
-        email: 'john@gmail.com',
-        phone: '333-333-3333',
-        designation: 'Web Developer'
+const apiURL = 'http://localhost:5000/api/contacts'
+
+const contacts = ref([])
+
+const getcontacts = async () => {
+    try {
+        const response = await axios.get(apiURL)
+        console.log(response.data)
+        contacts.value = response.data
+    } catch (err) {
+        console.log(err)
     }
-]
+}
+
+getcontacts()
 </script>
