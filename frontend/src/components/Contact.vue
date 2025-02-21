@@ -9,12 +9,14 @@
         <div class="flex content-between items-center gap-8 lg:basis-sm" v-show="!isHeading">
             <router-link :to="{ name: 'editContact', params: { id: contact._id } }"><i
                     class="fa fa-edit text-indigo-700 cursor-pointer"></i></router-link>
-            <i class="fa fa-trash text-red-500 cursor-pointer"></i>
+            <i @click="deleteContact" class="fa fa-trash text-red-500 cursor-pointer"></i>
         </div>
     </div>
 </template>
 
 <script setup>
+
+import { defineEmits } from "vue";
 
 const props = defineProps({
     contact: {
@@ -25,6 +27,14 @@ const props = defineProps({
         type: [Boolean, false]
     }
 })
+
+const emit = defineEmits(["delete-contact"]);
+
+const deleteContact = () => {
+    console.log(props.contact._id)
+    emit("delete-contact", props.contact._id);
+}
+
 </script>
 
 <style scoped></style>
