@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col max-w-md md:max-w-full gap-4 lg:gap-0 lg:flex-row w-full content-between p-6 md:p-4 mb-4 bg-stone-50 rounded-lg"
-        :class="isHeading && 'font-bold'">
+        :class="isHeading && ['font-bold', 'bg-transparent']">
         <p class="basis-full">{{ contact.name }}</p>
         <p class="basis-full">{{ contact.email }}</p>
         <p class="basis-full">{{ contact.phone }}</p>
