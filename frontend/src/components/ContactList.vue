@@ -34,7 +34,6 @@ const isLoading = ref(true)
 const getcontacts = async () => {
     try {
         const response = await axios.get(apiURL)
-        console.log(response.data)
         contacts.value = response.data
     } catch (err) {
         console.log(err)
