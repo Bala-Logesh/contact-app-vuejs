@@ -23,7 +23,7 @@
                     name="designation">
             </div>
 
-            <button class="bg-indigo-700 text-white rounded-lg p-4" type="submit">Submit</button>
+            <button class="bg-indigo-700 text-white rounded-lg p-4 cursor-pointer" type="submit">Submit</button>
         </form>
     </div>
 

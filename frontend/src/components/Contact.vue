@@ -7,7 +7,8 @@
         <p class="basis-full">{{ contact.designation }}</p>
         <p class="lg:basis-sm" v-show="isHeading">Action</p>
         <div class="flex content-between items-center gap-8 lg:basis-sm" v-show="!isHeading">
-            <i class="fa fa-edit text-indigo-700 cursor-pointer"></i>
+            <router-link :to="{ name: 'editContact', params: { id: contact._id } }"><i
+                    class="fa fa-edit text-indigo-700 cursor-pointer"></i></router-link>
             <i class="fa fa-trash text-red-500 cursor-pointer"></i>
         </div>
     </div>
