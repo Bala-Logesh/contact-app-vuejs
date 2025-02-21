@@ -31,7 +31,6 @@ const props = defineProps({
 const emit = defineEmits(["delete-contact"]);
 
 const deleteContact = () => {
-    console.log(props.contact._id)
     emit("delete-contact", props.contact._id);
 }
 

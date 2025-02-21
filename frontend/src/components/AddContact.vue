@@ -32,6 +32,7 @@
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { useToast } from "vue-toastification";
 
 const contact = ref({
@@ -41,6 +42,7 @@ const contact = ref({
     designation: ''
 })
 
+const router = useRouter()
 const toast = useToast();
 
 const apiURL = 'http://localhost:5000/api/contacts'
@@ -67,6 +69,8 @@ const saveContact = async () => {
             toast.success("Contact added succesfully", {
                 timeout: 2000
             });
+
+            router.push({ name: 'contactList' })
         }
     } catch (err) {
         console.log(err)
